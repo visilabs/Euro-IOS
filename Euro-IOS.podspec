@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Euro-IOS'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Euro-IOS.'
+  s.version          = '1.9.1'
+  s.summary          = 'Euro IOS Framework'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,12 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/egemen@visilabs.com/Euro-IOS'
+  s.homepage         = 'https://www.visilabs.com'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'egemen@visilabs.com' => 'egemen.gulkilik@relateddigital.com' }
-  s.source           = { :git => 'https://github.com/egemen@visilabs.com/Euro-IOS.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/visilabs/Euro-IOS.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 

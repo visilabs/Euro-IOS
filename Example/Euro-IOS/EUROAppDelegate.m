@@ -7,12 +7,13 @@
 //
 
 #import "EUROAppDelegate.h"
+#import "EuroManager.h"
 
 @implementation EUROAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [[EuroManager sharedManager:@"VisilabsIOSDemo"] setUserKey: @"egemen@visilabs.com"];
     return YES;
 }
 

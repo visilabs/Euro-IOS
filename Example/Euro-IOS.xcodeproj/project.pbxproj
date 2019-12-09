@@ -40,8 +40,8 @@
 		043ADBF1BF0400C777407E87 /* Pods_Euro_IOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Euro_IOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16663301DF23F571E5D6E758 /* Pods_Euro_IOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Euro_IOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		360D7AF0E0F38A45F9719F9D /* Pods-Euro-IOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euro-IOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-Euro-IOS_Example/Pods-Euro-IOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		5410B8DC090291DC526C7787 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		5CBABC1388DD2F8AA9AD2557 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5410B8DC090291DC526C7787 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		5CBABC1388DD2F8AA9AD2557 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Euro-IOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Euro-IOS_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,7 +63,7 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		951AE9EC12875B72A0123C9B /* Euro-IOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "Euro-IOS.podspec"; path = "../Euro-IOS.podspec"; sourceTree = "<group>"; };
+		951AE9EC12875B72A0123C9B /* Euro-IOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Euro-IOS.podspec"; path = "../Euro-IOS.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FC377DBBE5888FF0C55B10D /* Pods-Euro-IOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euro-IOS_Example.release.xcconfig"; path = "Target Support Files/Pods-Euro-IOS_Example/Pods-Euro-IOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A46BF031323B56B3EE9724F7 /* Pods-Euro-IOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euro-IOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Euro-IOS_Tests/Pods-Euro-IOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B24DBBBAB35E017522ACA085 /* Pods-Euro-IOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euro-IOS_Tests.release.xcconfig"; path = "Target Support Files/Pods-Euro-IOS_Tests/Pods-Euro-IOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,7 +193,6 @@
 				A46BF031323B56B3EE9724F7 /* Pods-Euro-IOS_Tests.debug.xcconfig */,
 				B24DBBBAB35E017522ACA085 /* Pods-Euro-IOS_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
