@@ -1,0 +1,6 @@
+framework module Euro_IOS {
+  umbrella header "Euro-IOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

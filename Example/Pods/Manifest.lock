@@ -1,0 +1,16 @@
+PODS:
+  - Euro-IOS (1.9.1)
+
+DEPENDENCIES:
+  - Euro-IOS (from `../`)
+
+EXTERNAL SOURCES:
+  Euro-IOS:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Euro-IOS: fbfbdd2a9fc3a0e3e71f3857df0d0e91e0855f76
+
+PODFILE CHECKSUM: 44b53cc6c7aa1f3e3c33423c9c2ca860531e91ee
+
+COCOAPODS: 1.8.4
