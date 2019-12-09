@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'Euro-IOS_Example' do
+  pod 'Euro-IOS', :path => '../'
+
+  target 'Euro-IOS_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
