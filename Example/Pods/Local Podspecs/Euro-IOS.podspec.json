@@ -1,9 +1,9 @@
 {
   "name": "Euro-IOS",
-  "version": "1.9.1",
+  "version": "1.9.4",
   "summary": "Euro IOS Framework",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/egemen@visilabs.com/Euro-IOS",
+  "homepage": "https://www.visilabs.com",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,11 @@
     "egemen@visilabs.com": "egemen.gulkilik@relateddigital.com"
   },
   "source": {
-    "git": "https://github.com/egemen@visilabs.com/Euro-IOS.git",
-    "tag": "1.9.1"
+    "git": "https://github.com/visilabs/Euro-IOS.git",
+    "tag": "1.9.4"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "7.0"
   },
   "source_files": "Euro-IOS/Classes/**/*"
 }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Euro-IOS'
-  s.version          = '1.9.4'
+  s.version          = '1.9.5'
   s.summary          = 'Euro IOS Framework'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ TODO: Add long description of the pod here.
   s.author           = { 'egemen@visilabs.com' => 'egemen.gulkilik@relateddigital.com' }
   s.source           = { :git => 'https://github.com/visilabs/Euro-IOS.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
 
   s.source_files = 'Euro-IOS/Classes/**/*'
   
