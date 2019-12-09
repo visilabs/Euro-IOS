@@ -1,5 +1,5 @@
 PODS:
-  - Euro-IOS (1.9.4)
+  - Euro-IOS (1.9.6)
 
 DEPENDENCIES:
   - Euro-IOS (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Euro-IOS: 3aeb95ce81dc558da8b959634cdce64e9fbccb47
+  Euro-IOS: 73630d1f2fa2aa20ffffc038a5d7aee47a1d23f7
 
 PODFILE CHECKSUM: 44b53cc6c7aa1f3e3c33423c9c2ca860531e91ee
 
