@@ -107,7 +107,7 @@ static NSString * const EURO_READ_STATUS = @"O";
     if (launchOptions != nil)
     {
         NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-        if (userInfo)
+        if (userInfo != nil)
         {
             [sharedMyManager handlePush:userInfo];
         }
