@@ -89,6 +89,14 @@ static NSString * const EURO_READ_STATUS = @"O";
 #pragma mark Singleton Methods
 
 + (EuroManager *)sharedManager:(NSString *) applicationKey {
+    return [EuroManager instance:applicationKey launchOptions:nil];
+}
+
++ (EuroManager *)sharedManager:(NSString *) applicationKey launchOptions:(NSDictionary*)launchOptions {
+    return [EuroManager instance:applicationKey launchOptions:launchOptions];
+}
+
++ (EuroManager *)instance:(NSString *) applicationKey launchOptions:(NSDictionary*)launchOptions{
     static EuroManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -96,8 +104,17 @@ static NSString * const EURO_READ_STATUS = @"O";
         sharedMyManager.registerRequest.token = [EMTools retrieveUserDefaults:TOKEN_KEY];
     });
     sharedMyManager.registerRequest.appKey = applicationKey;
+    if (launchOptions != nil)
+    {
+        NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (userInfo)
+        {
+            [sharedMyManager handlePush:userInfo];
+        }
+    }
     return sharedMyManager;
 }
+
 
 - (id)init {
     if (self = [super init]) {

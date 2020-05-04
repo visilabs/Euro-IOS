@@ -19,6 +19,8 @@
 }
 
 + (EuroManager *)sharedManager:(NSString *) applicationKey;
++ (EuroManager *)sharedManager:(NSString *) applicationKey launchOptions:(NSDictionary*)launchOptions;
+
 
 - (void) reportVisilabs: (NSString *) visiUrl;
 
