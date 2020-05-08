@@ -17,4 +17,8 @@
 + (void) saveUserDefaults:(NSString *)key andValue:(id)value;
 + (NSString *) getInfoString : (NSString *) key;
 
++ (NSString *)getCurrentDeviceVersion;
++ (BOOL)isIOSVersionGreaterThanOrEqual:(NSString *)version;
++ (BOOL)isIOSVersionLessThan:(NSString *)version;
+
 @end

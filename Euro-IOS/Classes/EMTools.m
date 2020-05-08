@@ -58,4 +58,22 @@
     return [infoDict objectForKey:key];
 }
 
++ (NSString *)getCurrentDeviceVersion {
+    return [[UIDevice currentDevice] systemVersion];
+}
+
++ (BOOL)isIOSVersionGreaterThanOrEqual:(NSString *)version {
+    return [[self getCurrentDeviceVersion] compare:version options:NSNumericSearch] != NSOrderedAscending;
+}
+
++ (BOOL)isIOSVersionLessThan:(NSString *)version {
+    return [[self getCurrentDeviceVersion] compare:version options:NSNumericSearch] == NSOrderedAscending;
+}
+
+
+@end
+
+
+@interface UIApplication (Swizzling)
++(Class)delegateClass;
 @end
