@@ -34,6 +34,8 @@
 		6E8D9791E8B4A3291D0D56B23340F4B6 /* EuroManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F2D34AB6DFFEFBEAB596D92F5FCEF /* EuroManager.m */; };
 		70490FB9B14F8E4046D0F24915851CCA /* EMTools.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD54097D21450FB229FDFD25A0441 /* EMTools.m */; };
 		816D08050D4DF624DCAAE81D37BA4412 /* EMMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = C1251731D4133A331A6F23F2573C5E2D /* EMMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8846FC332466052C00ABE3BC /* UNUserNotificationCenter+EM.h in Headers */ = {isa = PBXBuildFile; fileRef = 8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */; };
+		8846FC352466054400ABE3BC /* UNUserNotificationCenter+EM.m in Sources */ = {isa = PBXBuildFile; fileRef = 8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */; };
 		887322C72465BE8600C52D33 /* EMSelectorHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 887322C52465BE8500C52D33 /* EMSelectorHelpers.m */; };
 		887322C82465BE8600C52D33 /* EMSelectorHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 887322C62465BE8600C52D33 /* EMSelectorHelpers.h */; };
 		887322CA2465C5C900C52D33 /* UIApplicationDelegate+EM.h in Headers */ = {isa = PBXBuildFile; fileRef = 887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */; };
@@ -124,6 +126,8 @@
 		80322C33FD9F08ED43F02710318C4255 /* iCarousel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = "Euro-IOS/Classes/iCarousel.m"; sourceTree = "<group>"; };
 		84E30AE42BDC1381EC130D9C536B6CA9 /* Euro-IOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Euro-IOS-umbrella.h"; sourceTree = "<group>"; };
 		8638CE927DDDFEF804F286BC0E755BD4 /* EMJSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONModelError.h; sourceTree = "<group>"; };
+		8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UNUserNotificationCenter+EM.h"; path = "Euro-IOS/Classes/UNUserNotificationCenter+EM.h"; sourceTree = "<group>"; };
+		8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UNUserNotificationCenter+EM.m"; path = "Euro-IOS/Classes/UNUserNotificationCenter+EM.m"; sourceTree = "<group>"; };
 		887322C52465BE8500C52D33 /* EMSelectorHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMSelectorHelpers.m; path = "Euro-IOS/Classes/EMSelectorHelpers.m"; sourceTree = "<group>"; };
 		887322C62465BE8600C52D33 /* EMSelectorHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMSelectorHelpers.h; path = "Euro-IOS/Classes/EMSelectorHelpers.h"; sourceTree = "<group>"; };
 		887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIApplicationDelegate+EM.h"; path = "Euro-IOS/Classes/UIApplicationDelegate+EM.h"; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 				B8FF3D463AF0EF62A235355B2267ADA6 /* JSONModel */,
 				5E638D26BB7A71DA5072C1BF18FEC315 /* Pod */,
 				B65AF82E7E653435702CB5853F83080E /* Support Files */,
+				8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */,
+				8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */,
 			);
 			name = "Euro-IOS";
 			path = ../..;
@@ -426,6 +432,7 @@
 				94619510A3739B6172528B8F50642F36 /* EMJSONModelClassProperty.h in Headers */,
 				DB7AB9676E48F3392D04B33FC9F2FD0B /* EMJSONModelError.h in Headers */,
 				DC5BFB95D4A326893708143A898BA69F /* EMJSONModelLib.h in Headers */,
+				8846FC332466052C00ABE3BC /* UNUserNotificationCenter+EM.h in Headers */,
 				F581E2D6B69F9F5DBB3A45BB9820727E /* EMJSONValueTransformer.h in Headers */,
 				DC7C0BB03A76A4F7B4541BBDD795931C /* EMLocation.h in Headers */,
 				6DBDAFA3C877E82FF2764B01F4F7CBD6 /* EMLogging.h in Headers */,
@@ -600,6 +607,7 @@
 				6E8D9791E8B4A3291D0D56B23340F4B6 /* EuroManager.m in Sources */,
 				B3D153B08C2A6AE9ACE37B78BCB1FC92 /* iCarousel.m in Sources */,
 				13A4B9BCCD4306EE29340CD2D659DBA5 /* NSArray+EMJSONModel.m in Sources */,
+				8846FC352466054400ABE3BC /* UNUserNotificationCenter+EM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
