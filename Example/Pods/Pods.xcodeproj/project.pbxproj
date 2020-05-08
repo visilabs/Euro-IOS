@@ -34,6 +34,10 @@
 		6E8D9791E8B4A3291D0D56B23340F4B6 /* EuroManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F2D34AB6DFFEFBEAB596D92F5FCEF /* EuroManager.m */; };
 		70490FB9B14F8E4046D0F24915851CCA /* EMTools.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD54097D21450FB229FDFD25A0441 /* EMTools.m */; };
 		816D08050D4DF624DCAAE81D37BA4412 /* EMMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = C1251731D4133A331A6F23F2573C5E2D /* EMMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		887322C72465BE8600C52D33 /* EMSelectorHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 887322C52465BE8500C52D33 /* EMSelectorHelpers.m */; };
+		887322C82465BE8600C52D33 /* EMSelectorHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 887322C62465BE8600C52D33 /* EMSelectorHelpers.h */; };
+		887322CA2465C5C900C52D33 /* UIApplicationDelegate+EM.h in Headers */ = {isa = PBXBuildFile; fileRef = 887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */; };
+		887322CC2465C64000C52D33 /* UIApplicationDelegate+EM.m in Sources */ = {isa = PBXBuildFile; fileRef = 887322CB2465C64000C52D33 /* UIApplicationDelegate+EM.m */; };
 		94619510A3739B6172528B8F50642F36 /* EMJSONModelClassProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2DF183EC5FC133A041605251FDAE47 /* EMJSONModelClassProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9703DCDBB4670AFDE599301F9561A2EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		B0D8DB7EBDE6A42A8A37400E5858A118 /* Pods-Euro-IOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DFEFA7F9E403D6F4A6804D943D29B2 /* Pods-Euro-IOS_Tests-dummy.m */; };
@@ -87,25 +91,25 @@
 		0FF110359E60CB04A149340AD81757AA /* EuroManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EuroManager.h; path = "Euro-IOS/Classes/EuroManager.h"; sourceTree = "<group>"; };
 		135CBB8446063D4ECC0F171CBE9320C5 /* AsyncImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AsyncImageDownloader.m; path = "Euro-IOS/Classes/AsyncImageDownloader.m"; sourceTree = "<group>"; };
 		1B26649128AF31DCF494D4FCDE708FCF /* EMJSONModelArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONModelArray.h; sourceTree = "<group>"; };
-		2252AA639F2A943FA6F1CD62DC4C1D67 /* Euro_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Euro_IOS.framework; path = "Euro-IOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2252AA639F2A943FA6F1CD62DC4C1D67 /* Euro_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Euro_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		270BE4A1D9D8DCBE747D635BD9894C68 /* EMSettingsModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EMSettingsModel.h; path = "Euro-IOS/Classes/EMSettingsModel.h"; sourceTree = "<group>"; };
 		283529F4EC03C1112D2133AA2B745190 /* Pods-Euro-IOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Euro-IOS_Tests.modulemap"; sourceTree = "<group>"; };
 		2A64334DB2DD9D7AAC308285F2D27AA7 /* EMInteractiveAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EMInteractiveAction.h; path = "Euro-IOS/Classes/EMInteractiveAction.h"; sourceTree = "<group>"; };
-		2EEA57618C003A0C60C13407262D0C25 /* Pods_Euro_IOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Euro_IOS_Example.framework; path = "Pods-Euro-IOS_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EEA57618C003A0C60C13407262D0C25 /* Pods_Euro_IOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Euro_IOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		368FF33CDACA7EEB86AC0544BD2CDB62 /* Euro-IOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Euro-IOS-Info.plist"; sourceTree = "<group>"; };
 		3B10655A14C6FF77246F3F4EE79086CA /* Pods-Euro-IOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Euro-IOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3FE16F51BF4C6686A8F4C8E0536A1789 /* iCarousel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = "Euro-IOS/Classes/iCarousel.h"; sourceTree = "<group>"; };
 		47F33180C754D5A9A99E2A32560FBDAB /* EMBaseRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EMBaseRequest.h; path = "Euro-IOS/Classes/EMBaseRequest.h"; sourceTree = "<group>"; };
 		495DDDA8A300E9CF1A0FD8EA3CB011E4 /* BaseObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BaseObject.m; path = "Euro-IOS/Classes/BaseObject.m"; sourceTree = "<group>"; };
-		4E69C1911C129D9743763B69DD4D59AD /* Euro-IOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "Euro-IOS.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4E69C1911C129D9743763B69DD4D59AD /* Euro-IOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = "Euro-IOS.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E8B351A459FC93D41FC5D59B3E52EA1 /* Pods-Euro-IOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Euro-IOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		535542DC543E4FA7CCDF719B9BFF1EB0 /* EMJSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONModel.h; sourceTree = "<group>"; };
 		54C0F83D965CC883363004627364C266 /* EMRegisterRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EMRegisterRequest.h; path = "Euro-IOS/Classes/EMRegisterRequest.h"; sourceTree = "<group>"; };
 		55248E9A6CC41310E8988BDE54FF7FC7 /* EMJSONValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EMJSONValueTransformer.m; sourceTree = "<group>"; };
 		5C5F2D34AB6DFFEFBEAB596D92F5FCEF /* EuroManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EuroManager.m; path = "Euro-IOS/Classes/EuroManager.m"; sourceTree = "<group>"; };
 		62818CDA00DD042DF54913A351B26C45 /* EMMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EMMessage.m; path = "Euro-IOS/Classes/EMMessage.m"; sourceTree = "<group>"; };
-		641503FEDAD4F2A267D595513AF043C7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		641503FEDAD4F2A267D595513AF043C7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		67BA5352F3FDDBF0F16E135D3832CA58 /* Euro-IOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Euro-IOS-prefix.pch"; sourceTree = "<group>"; };
 		680BCF0BFDF1EF2ACCDB1040BA4A5237 /* Pods-Euro-IOS_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Euro-IOS_Tests-Info.plist"; sourceTree = "<group>"; };
 		6D997AAB24263DECDA5B8C4AE0A49DB6 /* Pods-Euro-IOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Euro-IOS_Example.modulemap"; sourceTree = "<group>"; };
@@ -120,6 +124,10 @@
 		80322C33FD9F08ED43F02710318C4255 /* iCarousel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = "Euro-IOS/Classes/iCarousel.m"; sourceTree = "<group>"; };
 		84E30AE42BDC1381EC130D9C536B6CA9 /* Euro-IOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Euro-IOS-umbrella.h"; sourceTree = "<group>"; };
 		8638CE927DDDFEF804F286BC0E755BD4 /* EMJSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONModelError.h; sourceTree = "<group>"; };
+		887322C52465BE8500C52D33 /* EMSelectorHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMSelectorHelpers.m; path = "Euro-IOS/Classes/EMSelectorHelpers.m"; sourceTree = "<group>"; };
+		887322C62465BE8600C52D33 /* EMSelectorHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMSelectorHelpers.h; path = "Euro-IOS/Classes/EMSelectorHelpers.h"; sourceTree = "<group>"; };
+		887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIApplicationDelegate+EM.h"; path = "Euro-IOS/Classes/UIApplicationDelegate+EM.h"; sourceTree = "<group>"; };
+		887322CB2465C64000C52D33 /* UIApplicationDelegate+EM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIApplicationDelegate+EM.m"; path = "Euro-IOS/Classes/UIApplicationDelegate+EM.m"; sourceTree = "<group>"; };
 		88BB5DFBCCA4AF027C82E909FF893FF9 /* EMLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EMLogging.h; path = "Euro-IOS/Classes/EMLogging.h"; sourceTree = "<group>"; };
 		89B8AF10529FA04B9779491AEAA63D84 /* EMJSONModelLib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONModelLib.h; sourceTree = "<group>"; };
 		8F88BE25296E1FC905F995B18BDF0635 /* Pods-Euro-IOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Euro-IOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,7 +135,7 @@
 		942AA662865F9BEE00D862353E30AB55 /* EMSettingsRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EMSettingsRequest.m; path = "Euro-IOS/Classes/EMSettingsRequest.m"; sourceTree = "<group>"; };
 		94C989B55A474DC5E4EF1F4DAD011116 /* EMJSONModelError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EMJSONModelError.m; sourceTree = "<group>"; };
 		95289EFA5BD39DDB7B3DF2159F3CC566 /* EMRegisterRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EMRegisterRequest.m; path = "Euro-IOS/Classes/EMRegisterRequest.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1A0E4F96A69B9503D6C62CCEB505C44 /* Pods-Euro-IOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Euro-IOS_Tests-umbrella.h"; sourceTree = "<group>"; };
 		A409CD198CA631275AABE3CB085C6A33 /* Euro-IOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Euro-IOS-dummy.m"; sourceTree = "<group>"; };
 		A4A58FF1396C474917D5A1397BCEAB96 /* Pods-Euro-IOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Euro-IOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,9 +144,9 @@
 		C231981E4E980071390085B0F559DB0C /* EMJSONValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONValueTransformer.h; sourceTree = "<group>"; };
 		C4AC5A84D6290CE480FDB12BC2EB40CA /* EMBaseRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EMBaseRequest.m; path = "Euro-IOS/Classes/EMBaseRequest.m"; sourceTree = "<group>"; };
 		C4DFEFA7F9E403D6F4A6804D943D29B2 /* Pods-Euro-IOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Euro-IOS_Tests-dummy.m"; sourceTree = "<group>"; };
-		C5BB54701CB8BB199C88EEE4820F65ED /* Pods_Euro_IOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Euro_IOS_Tests.framework; path = "Pods-Euro-IOS_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5BB54701CB8BB199C88EEE4820F65ED /* Pods_Euro_IOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Euro_IOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C717D314CEF559A623A6407172659019 /* Pods-Euro-IOS_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Euro-IOS_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D2C70CDBBAB590DA39B53FDF76DA7C7B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D2C70CDBBAB590DA39B53FDF76DA7C7B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D41712E4F52FF6B18768F4E604200540 /* Pods-Euro-IOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Euro-IOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D94834D0476E33C980C2B78FC31D4CFD /* Pods-Euro-IOS_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Euro-IOS_Example-umbrella.h"; sourceTree = "<group>"; };
 		DB6121CB3BB149070307F46B228261B6 /* Pods-Euro-IOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Euro-IOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,7 +203,6 @@
 				8638CE927DDDFEF804F286BC0E755BD4 /* EMJSONModelError.h */,
 				94C989B55A474DC5E4EF1F4DAD011116 /* EMJSONModelError.m */,
 			);
-			name = JSONModel;
 			path = JSONModel;
 			sourceTree = "<group>";
 		};
@@ -242,7 +249,6 @@
 				718C0DA75B62F1E71A299EAAF2DFCFCA /* NSArray+EMJSONModel.h */,
 				6F513F5C62087C3CD08D03618D2AB749 /* NSArray+EMJSONModel.m */,
 			);
-			name = JSONModelCategories;
 			path = JSONModelCategories;
 			sourceTree = "<group>";
 		};
@@ -254,7 +260,6 @@
 				C231981E4E980071390085B0F559DB0C /* EMJSONValueTransformer.h */,
 				55248E9A6CC41310E8988BDE54FF7FC7 /* EMJSONValueTransformer.m */,
 			);
-			name = JSONModelTransformations;
 			path = JSONModelTransformations;
 			sourceTree = "<group>";
 		};
@@ -297,6 +302,10 @@
 				5C5F2D34AB6DFFEFBEAB596D92F5FCEF /* EuroManager.m */,
 				3FE16F51BF4C6686A8F4C8E0536A1789 /* iCarousel.h */,
 				80322C33FD9F08ED43F02710318C4255 /* iCarousel.m */,
+				887322C62465BE8600C52D33 /* EMSelectorHelpers.h */,
+				887322C52465BE8500C52D33 /* EMSelectorHelpers.m */,
+				887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */,
+				887322CB2465C64000C52D33 /* UIApplicationDelegate+EM.m */,
 				B8FF3D463AF0EF62A235355B2267ADA6 /* JSONModel */,
 				5E638D26BB7A71DA5072C1BF18FEC315 /* Pod */,
 				B65AF82E7E653435702CB5853F83080E /* Support Files */,
@@ -410,6 +419,7 @@
 				FF4F89D5C427487EDBCC4125CD50F1AD /* BaseObject.h in Headers */,
 				4703A3C8B7F9141296F9EE7F6B63E294 /* EMBaseRequest.h in Headers */,
 				14D6950DB26DB1722FE9318112A84D9E /* EMInteractiveAction.h in Headers */,
+				887322CA2465C5C900C52D33 /* UIApplicationDelegate+EM.h in Headers */,
 				4F47DEB102CB3FBB9EAC34157147134F /* EMJSONKeyMapper.h in Headers */,
 				5B0851E0CC83970EB6F4357E947DF323 /* EMJSONModel.h in Headers */,
 				113DD9011D342BE5612F04DCCD5E6FF1 /* EMJSONModelArray.h in Headers */,
@@ -425,6 +435,7 @@
 				B889E28961D7F967970CFC421785B922 /* EMSettingsModel.h in Headers */,
 				61791D59618DE0A2F3EFCEA1B493872C /* EMSettingsRequest.h in Headers */,
 				6D3DF002B5A219427ED3DE6CFD74D9E9 /* EMTools.h in Headers */,
+				887322C82465BE8600C52D33 /* EMSelectorHelpers.h in Headers */,
 				345C1C5762140B92282DB0B0FF929D56 /* Euro-IOS-umbrella.h in Headers */,
 				F4FAA849C69B7DCB5E2E43D43983A291 /* EuroFramework.h in Headers */,
 				F0FE77EF57CAB0DA1671AABD30863136 /* EuroManager.h in Headers */,
@@ -566,10 +577,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				887322C72465BE8600C52D33 /* EMSelectorHelpers.m in Sources */,
 				32F97D72363072B66222240532DE754D /* AsyncImageDownloader.m in Sources */,
 				36CBC13FF409EAE74DED1229A4D1E989 /* BaseObject.m in Sources */,
 				B2D81F1EAD8647B68646B5D8C74B1E24 /* EMBaseRequest.m in Sources */,
 				14E0CA056345DA8BA45C958F55DADFDE /* EMInteractiveAction.m in Sources */,
+				887322CC2465C64000C52D33 /* UIApplicationDelegate+EM.m in Sources */,
 				5A08A3B2926E95EB544629B695632FA1 /* EMJSONKeyMapper.m in Sources */,
 				21F7B0E0225F4F0998549D634B3F4DBC /* EMJSONModel.m in Sources */,
 				1349A209BAD5C9741659241345F0BCB0 /* EMJSONModelArray.m in Sources */,
@@ -693,8 +706,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
