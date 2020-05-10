@@ -70,6 +70,36 @@
     return [[self getCurrentDeviceVersion] compare:version options:NSNumericSearch] == NSOrderedAscending;
 }
 
+//Shared instance as OneSignal is delegate of UNUserNotificationCenterDelegate and CLLocationManagerDelegate
+static EuroManager* singleInstance = nil;
++(EuroManager*)sharedInstance {
+    @synchronized( singleInstance ) {
+        if (!singleInstance )
+            singleInstance = [EuroManager new];
+    }
+    
+    return singleInstance;
+}
+
++ (void)registerAsUNNotificationCenterDelegate {
+    let curNotifCenter = [UNUserNotificationCenter currentNotificationCenter];
+    
+    /*
+        Sets the OneSignal shared instance as a delegate of UNUserNotificationCenter
+        OneSignal does not implement the delegate methods, we simply set it as a delegate
+        in order to swizzle the UNUserNotificationCenter methods in case the developer
+        does not set a UNUserNotificationCenter delegate themselves
+    */
+    
+    if (!curNotifCenter.delegate)
+        curNotifCenter.delegate = (id)[self sharedInstance];
+}
+
++ (NSMutableDictionary*)formatApsPayloadIntoStandard:(NSDictionary*)remoteUserInfo identifier:(NSString*)identifier {
+    NSMutableDictionary* userInfo = [remoteUserInfo mutableCopy];
+    return userInfo;
+}
+
 
 @end
 
