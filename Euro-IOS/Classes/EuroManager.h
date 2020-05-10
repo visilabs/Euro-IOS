@@ -7,20 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EMMessage.h"
-#import "EMTools.h"
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
 
-#define SDK_VERSION @"1.9.1"
+#import "EMMessage.h"
+#import "EMTools.h"
 
+#define SDK_VERSION @"2.0.1"
+
+//TODO: UNUserNotificationCenterDelegate kaldırdım, bir soruna sebep olur mu kontrol et.
+/*
 @interface EuroManager : NSObject <UNUserNotificationCenterDelegate> {
 
 }
+ */
+
+@interface EuroManager : NSObject
 
 + (EuroManager *)sharedManager:(NSString *) applicationKey;
 + (EuroManager *)sharedManager:(NSString *) applicationKey launchOptions:(NSDictionary*)launchOptions;
-
++ (NSString*)applicationKey;
++ (NSString*)userInfo;
 
 - (void) reportVisilabs: (NSString *) visiUrl;
 
