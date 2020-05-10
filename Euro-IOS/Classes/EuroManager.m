@@ -17,6 +17,16 @@
 #import "EMRetentionRequest.h"
 #import "EMLogging.h"
 
+
+#import "EMSelectorHelpers.h"
+#import "UIApplicationDelegate+EM.h"
+#import "UNUserNotificationCenter+EM.h"
+
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+
+
 #define TOKEN_KEY @"EURO_TOKEN_KEY"
 #define REGISTER_KEY @"EURO_REGISTER_KEY"
 #define LAST_REQUEST_DATE_KEY @"EURO_LAST_REQUEST_DATE_KEY"
@@ -53,6 +63,26 @@ static NSString * const EURO_READ_STATUS = @"O";
 @end
 
 @implementation EuroManager
+
+static NSString* applicationKey;
+static NSDictionary* userInfo;
+static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
+
++ (NSString*)applicationKey {
+    return applicationKey;
+}
+
++ (void)setApplicationKey:(NSString*)key {
+    applicationKey = key;
+}
+
++ (NSDictionary*)userInfo {
+    return userInfo;
+}
+
++ (void)setUserInfo:(NSDictionary*)info {
+    userInfo = info;
+}
 
 - (void) reportVisilabs : (NSString *) visiUrl {
     
@@ -103,12 +133,18 @@ static NSString * const EURO_READ_STATUS = @"O";
         sharedMyManager = [[self alloc] init];
         sharedMyManager.registerRequest.token = [EMTools retrieveUserDefaults:TOKEN_KEY];
     });
-    sharedMyManager.registerRequest.appKey = applicationKey;
+    
+    if(applicationKey){
+        EuroManager.applicationKey = applicationKey;
+        sharedMyManager.registerRequest.appKey = applicationKey;
+    }
+    
     if (launchOptions != nil)
     {
         NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
         if (userInfo != nil)
         {
+            EuroManager.userInfo = userInfo;
             [sharedMyManager handlePush:userInfo];
         }
     }
@@ -323,6 +359,7 @@ static NSString * const EURO_READ_STATUS = @"O";
     if(pushDictionary == nil || [pushDictionary objectForKey:@"pushId"] == nil) {
         return;
     }
+    EuroManager.userInfo = pushDictionary;
     
     if(self.debugMode) {
         LogInfo(@"handlePush: %@",pushDictionary);
@@ -366,7 +403,9 @@ static NSString * const EURO_READ_STATUS = @"O";
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
         LogInfo(@"Register for iOS 8+");
-    } else {
+    }
+    //TODO: bu kısım kaldırılabilir iOS 8 den eski sistemlere gerek yok
+    else {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
         LogInfo(@"Register for iOS older");
     }
@@ -489,5 +528,58 @@ static NSString * const EURO_READ_STATUS = @"O";
     return [hexString copy];
 }
 
+
+@end
+
+
+@implementation UIApplication (EuroManager)
+
+
+
++ (void)load {
+
+    NSProcessInfo *processInfo = [NSProcessInfo processInfo];
+    if ([[processInfo processName] isEqualToString:@"IBDesignablesAgentCocoaTouch"] || [[processInfo processName] isEqualToString:@"IBDesignablesAgent-iOS"])
+        return;
+    
+    
+    
+    if ([EMTools isIOSVersionLessThan:@"8.0"])
+        return;
+
+    // Double loading of class detection.
+    BOOL existing = injectSelector([EMAppDelegate class], @selector(emLoadedTagSelector:), self, @selector(emLoadedTagSelector:));
+    
+    if (existing) {
+        //TODO: bak
+        //[OneSignal onesignal_Log:ONE_S_LL_WARN message:@"Already swizzled UIApplication.setDelegate. Make sure the OneSignal library wasn't loaded into the runtime twice!"];
+        return;
+    }
+
+    // Swizzle - UIApplication delegate
+    injectToProperClass(@selector(setEMDelegate:), @selector(setDelegate:), @[], [EMAppDelegate class], [UIApplication class]);
+    
+    //TODO: buna gerek var mı kaldırılmalı mı?
+    //injectToProperClass(@selector(emSetApplicationIconBadgeNumber:), @selector(setApplicationIconBadgeNumber:), @[], [EMAppDelegate class], [UIApplication class]);
+    
+    [self setupUNUserNotificationCenterDelegate];
+
+    sessionLaunchTime = [NSDate date];
+     
+}
+
++(void)setupUNUserNotificationCenterDelegate {
+    //TODO:
+    
+    // Swizzle - UNUserNotificationCenter delegate - iOS 10+
+    if (!NSClassFromString(@"UNUserNotificationCenter"))
+        return;
+
+    [EMUNUserNotificationCenter swizzleSelectors];
+
+    // Set our own delegate if one hasn't been set already from something else.
+    [EMTools registerAsUNNotificationCenterDelegate];
+     
+}
 
 @end
