@@ -36,6 +36,7 @@
 		816D08050D4DF624DCAAE81D37BA4412 /* EMMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = C1251731D4133A331A6F23F2573C5E2D /* EMMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8846FC332466052C00ABE3BC /* UNUserNotificationCenter+EM.h in Headers */ = {isa = PBXBuildFile; fileRef = 8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */; };
 		8846FC352466054400ABE3BC /* UNUserNotificationCenter+EM.m in Sources */ = {isa = PBXBuildFile; fileRef = 8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */; };
+		8846FC3724677A2E00ABE3BC /* EMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 8846FC3624677A2E00ABE3BC /* EMDefines.h */; };
 		887322C72465BE8600C52D33 /* EMSelectorHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 887322C52465BE8500C52D33 /* EMSelectorHelpers.m */; };
 		887322C82465BE8600C52D33 /* EMSelectorHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 887322C62465BE8600C52D33 /* EMSelectorHelpers.h */; };
 		887322CA2465C5C900C52D33 /* UIApplicationDelegate+EM.h in Headers */ = {isa = PBXBuildFile; fileRef = 887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */; };
@@ -128,6 +129,7 @@
 		8638CE927DDDFEF804F286BC0E755BD4 /* EMJSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONModelError.h; sourceTree = "<group>"; };
 		8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UNUserNotificationCenter+EM.h"; path = "Euro-IOS/Classes/UNUserNotificationCenter+EM.h"; sourceTree = "<group>"; };
 		8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UNUserNotificationCenter+EM.m"; path = "Euro-IOS/Classes/UNUserNotificationCenter+EM.m"; sourceTree = "<group>"; };
+		8846FC3624677A2E00ABE3BC /* EMDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EMDefines.h; path = "Euro-IOS/Classes/EMDefines.h"; sourceTree = "<group>"; };
 		887322C52465BE8500C52D33 /* EMSelectorHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMSelectorHelpers.m; path = "Euro-IOS/Classes/EMSelectorHelpers.m"; sourceTree = "<group>"; };
 		887322C62465BE8600C52D33 /* EMSelectorHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMSelectorHelpers.h; path = "Euro-IOS/Classes/EMSelectorHelpers.h"; sourceTree = "<group>"; };
 		887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIApplicationDelegate+EM.h"; path = "Euro-IOS/Classes/UIApplicationDelegate+EM.h"; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				5C5F2D34AB6DFFEFBEAB596D92F5FCEF /* EuroManager.m */,
 				3FE16F51BF4C6686A8F4C8E0536A1789 /* iCarousel.h */,
 				80322C33FD9F08ED43F02710318C4255 /* iCarousel.m */,
+				8846FC3624677A2E00ABE3BC /* EMDefines.h */,
 				887322C62465BE8600C52D33 /* EMSelectorHelpers.h */,
 				887322C52465BE8500C52D33 /* EMSelectorHelpers.m */,
 				887322C92465C5C900C52D33 /* UIApplicationDelegate+EM.h */,
@@ -430,6 +433,7 @@
 				5B0851E0CC83970EB6F4357E947DF323 /* EMJSONModel.h in Headers */,
 				113DD9011D342BE5612F04DCCD5E6FF1 /* EMJSONModelArray.h in Headers */,
 				94619510A3739B6172528B8F50642F36 /* EMJSONModelClassProperty.h in Headers */,
+				8846FC3724677A2E00ABE3BC /* EMDefines.h in Headers */,
 				DB7AB9676E48F3392D04B33FC9F2FD0B /* EMJSONModelError.h in Headers */,
 				DC5BFB95D4A326893708143A898BA69F /* EMJSONModelLib.h in Headers */,
 				8846FC332466052C00ABE3BC /* UNUserNotificationCenter+EM.h in Headers */,
