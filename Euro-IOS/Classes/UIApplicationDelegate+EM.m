@@ -115,10 +115,10 @@ static NSArray* delegateSubclasses = nil;
         return;
     
     //TODO: local notification ile işimiz yok
-    /*
+    
     injectToProperClass(@selector(emLocalNotificationOpened:handleActionWithIdentifier:forLocalNotification:completionHandler:),
                         @selector(application:handleActionWithIdentifier:forLocalNotification:completionHandler:), delegateSubclasses, [EMAppDelegate class], delegateClass);
-    */
+    
      
     // iOS 10 requestAuthorizationWithOptions has it's own callback
     //   We also check the permssion status from applicationDidBecomeActive: each time.
@@ -135,10 +135,10 @@ static NSArray* delegateSubclasses = nil;
                         @selector(application:didReceiveRemoteNotification:), delegateSubclasses, [EMAppDelegate class], delegateClass);
     
     //TODO: local notification ile işimiz yok
-    /*
+    
     injectToProperClass(@selector(emLocalNotificationOpened:notification:),
                         @selector(application:didReceiveLocalNotification:), delegateSubclasses, [EMAppDelegate class], delegateClass);
-     */
+     
 }
 
 
@@ -236,7 +236,7 @@ static NSArray* delegateSubclasses = nil;
 }
 
 //TODO: local notification ile işimiz yok
-/*
+
 - (void) emLocalNotificationOpened:(UIApplication*)application handleActionWithIdentifier:(NSString*)identifier forLocalNotification:(UILocalNotification*)notification completionHandler:(void(^)()) completionHandler {
     
     //TODO: bak
@@ -260,7 +260,7 @@ static NSArray* delegateSubclasses = nil;
     if([self respondsToSelector:@selector(emLocalNotificationOpened:notification:)])
         [self emLocalNotificationOpened:application notification:notification];
 }
- */
+ 
 
 - (void)emApplicationWillResignActive:(UIApplication*)application {
     

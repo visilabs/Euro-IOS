@@ -22,7 +22,7 @@
 }
  */
 
-@interface EuroManager : NSObject
+@interface EuroManager : NSObject  <UNUserNotificationCenterDelegate>
 
 + (EuroManager *)sharedManager:(NSString *) applicationKey;
 + (EuroManager *)sharedManager:(NSString *) applicationKey launchOptions:(NSDictionary*)launchOptions;

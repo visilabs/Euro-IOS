@@ -85,9 +85,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
 }
 
 - (void) reportVisilabs : (NSString *) visiUrl {
-    
     [self request:visiUrl];
-    
 }
 
 - (void) reportRetention:(EMMessage *) message status:(NSString *)status {
@@ -118,6 +116,23 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
 
 #pragma mark Singleton Methods
 
+
++ (void)onDidFinishLaunchingNotification:(NSNotification *)notification {
+    NSDictionary *launchOptions = notification.userInfo;
+    if (launchOptions != nil)
+    {
+        NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (userInfo != nil)
+        {
+            EuroManager.userInfo = userInfo;
+        }
+    }
+}
+
++ (void)load {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidFinishLaunchingNotification:) name:UIApplicationDidFinishLaunchingNotification object:nil];
+}
+
 + (EuroManager *)sharedManager:(NSString *) applicationKey {
     return [EuroManager instance:applicationKey launchOptions:nil];
 }
@@ -145,8 +160,14 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
         if (userInfo != nil)
         {
             EuroManager.userInfo = userInfo;
-            [sharedMyManager handlePush:userInfo];
         }
+    }
+    
+    if (EuroManager.userInfo != nil)
+    {
+        [sharedMyManager handlePush:userInfo];
+        //TODO: burası nil yapılacak
+        //EuroManager.userInfo = nil;
     }
     return sharedMyManager;
 }
@@ -359,7 +380,6 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     if(pushDictionary == nil || [pushDictionary objectForKey:@"pushId"] == nil) {
         return;
     }
-    EuroManager.userInfo = pushDictionary;
     
     if(self.debugMode) {
         LogInfo(@"handlePush: %@",pushDictionary);
@@ -384,7 +404,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
 - (void) registerForPush {
     if (@available(iOS 10.0, *)) {
         
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];       
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
                 if(!error ){
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -528,6 +548,14 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     return [hexString copy];
 }
 
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+    NSLog(@"userNotificationCenter:willPresentNotification");
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
+    NSLog(@"userNotificationCenter:didReceiveNotificationResponse");
+}
+
 
 @end
 
@@ -583,3 +611,4 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
 }
 
 @end
+
