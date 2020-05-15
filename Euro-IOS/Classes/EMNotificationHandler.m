@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EMNotificationHandler.h"
+#import "EMMessage.h"
 
 @implementation EMNotificationHandler
 
@@ -15,6 +16,15 @@
     if(bestAttemptContent == nil || bestAttemptContent.userInfo == nil)
     {
         return;
+    }
+    
+    NSError *error;
+    EMMessage *pushDetail = [[EMMessage alloc] initWithDictionary:bestAttemptContent.userInfo error:&error];
+    UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
+    
+    if(pushDetail != nil && pushDetail.pushType == @"Image" || pushDetail.pushType == @"Video")
+    {
+        
     }
     
 }
