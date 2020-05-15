@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
+#import <UserNotifications/UNNotificationContent.h>
 
 #import "EMMessage.h"
 #import "EMTools.h"
@@ -43,5 +44,7 @@
 - (void) registerForPush;
 
 - (void) synchronize;
+
++ (void) didReceive:(UNMutableNotificationContent*) bestAttemptContent withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler API_AVAILABLE(ios(10.0));
 
 @end

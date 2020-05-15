@@ -21,6 +21,7 @@
 #import "EMSelectorHelpers.h"
 #import "UIApplicationDelegate+EM.h"
 #import "UNUserNotificationCenter+EM.h"
+#import "EMNotificationHandler.h"
 
 
 #pragma clang diagnostic push
@@ -548,6 +549,12 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     return [hexString copy];
 }
 
++ (void) didReceive:(UNMutableNotificationContent*) bestAttemptContent withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler API_AVAILABLE(ios(10.0))
+{
+    [EMNotificationHandler didReceive:bestAttemptContent withContentHandler:contentHandler];
+}
+
+/*
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
     NSLog(@"userNotificationCenter:willPresentNotification");
 }
@@ -555,7 +562,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
     NSLog(@"userNotificationCenter:didReceiveNotificationResponse");
 }
-
+*/
 
 @end
 

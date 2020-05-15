@@ -34,6 +34,8 @@
 		6E8D9791E8B4A3291D0D56B23340F4B6 /* EuroManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F2D34AB6DFFEFBEAB596D92F5FCEF /* EuroManager.m */; };
 		70490FB9B14F8E4046D0F24915851CCA /* EMTools.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5FD54097D21450FB229FDFD25A0441 /* EMTools.m */; };
 		816D08050D4DF624DCAAE81D37BA4412 /* EMMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = C1251731D4133A331A6F23F2573C5E2D /* EMMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		880DBCBE246EDAE0009D896C /* EMNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 880DBCBD246EDAE0009D896C /* EMNotificationHandler.m */; };
+		880DBCC0246EDB01009D896C /* EMNotificationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 880DBCBF246EDB01009D896C /* EMNotificationHandler.h */; };
 		8846FC332466052C00ABE3BC /* UNUserNotificationCenter+EM.h in Headers */ = {isa = PBXBuildFile; fileRef = 8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */; };
 		8846FC352466054400ABE3BC /* UNUserNotificationCenter+EM.m in Sources */ = {isa = PBXBuildFile; fileRef = 8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */; };
 		8846FC3724677A2E00ABE3BC /* EMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 8846FC3624677A2E00ABE3BC /* EMDefines.h */; };
@@ -127,6 +129,8 @@
 		80322C33FD9F08ED43F02710318C4255 /* iCarousel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = "Euro-IOS/Classes/iCarousel.m"; sourceTree = "<group>"; };
 		84E30AE42BDC1381EC130D9C536B6CA9 /* Euro-IOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Euro-IOS-umbrella.h"; sourceTree = "<group>"; };
 		8638CE927DDDFEF804F286BC0E755BD4 /* EMJSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EMJSONModelError.h; sourceTree = "<group>"; };
+		880DBCBD246EDAE0009D896C /* EMNotificationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EMNotificationHandler.m; path = "Euro-IOS/Classes/EMNotificationHandler.m"; sourceTree = "<group>"; };
+		880DBCBF246EDB01009D896C /* EMNotificationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EMNotificationHandler.h; path = "Euro-IOS/Classes/EMNotificationHandler.h"; sourceTree = "<group>"; };
 		8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UNUserNotificationCenter+EM.h"; path = "Euro-IOS/Classes/UNUserNotificationCenter+EM.h"; sourceTree = "<group>"; };
 		8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UNUserNotificationCenter+EM.m"; path = "Euro-IOS/Classes/UNUserNotificationCenter+EM.m"; sourceTree = "<group>"; };
 		8846FC3624677A2E00ABE3BC /* EMDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EMDefines.h; path = "Euro-IOS/Classes/EMDefines.h"; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 				B65AF82E7E653435702CB5853F83080E /* Support Files */,
 				8846FC322466052C00ABE3BC /* UNUserNotificationCenter+EM.h */,
 				8846FC342466054400ABE3BC /* UNUserNotificationCenter+EM.m */,
+				880DBCBF246EDB01009D896C /* EMNotificationHandler.h */,
+				880DBCBD246EDAE0009D896C /* EMNotificationHandler.m */,
 			);
 			name = "Euro-IOS";
 			path = ../..;
@@ -428,6 +434,7 @@
 				FF4F89D5C427487EDBCC4125CD50F1AD /* BaseObject.h in Headers */,
 				4703A3C8B7F9141296F9EE7F6B63E294 /* EMBaseRequest.h in Headers */,
 				14D6950DB26DB1722FE9318112A84D9E /* EMInteractiveAction.h in Headers */,
+				880DBCC0246EDB01009D896C /* EMNotificationHandler.h in Headers */,
 				887322CA2465C5C900C52D33 /* UIApplicationDelegate+EM.h in Headers */,
 				4F47DEB102CB3FBB9EAC34157147134F /* EMJSONKeyMapper.h in Headers */,
 				5B0851E0CC83970EB6F4357E947DF323 /* EMJSONModel.h in Headers */,
@@ -592,6 +599,7 @@
 				32F97D72363072B66222240532DE754D /* AsyncImageDownloader.m in Sources */,
 				36CBC13FF409EAE74DED1229A4D1E989 /* BaseObject.m in Sources */,
 				B2D81F1EAD8647B68646B5D8C74B1E24 /* EMBaseRequest.m in Sources */,
+				880DBCBE246EDAE0009D896C /* EMNotificationHandler.m in Sources */,
 				14E0CA056345DA8BA45C958F55DADFDE /* EMInteractiveAction.m in Sources */,
 				887322CC2465C64000C52D33 /* UIApplicationDelegate+EM.m in Sources */,
 				5A08A3B2926E95EB544629B695632FA1 /* EMJSONKeyMapper.m in Sources */,
