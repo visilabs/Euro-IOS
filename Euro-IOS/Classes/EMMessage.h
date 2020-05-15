@@ -27,6 +27,9 @@
 @property (nonatomic, strong) NSString<Optional> *pushType;
 @property (nonatomic, assign) NSNumber<Optional> *contentAvailable;
 
+//TODO: bu sonradan eklendi
+@property (nonatomic, strong) NSString<Optional> *deeplink;
+
 - (NSDictionary *) getInteractiveSettings;
 - (BOOL) hasUrl;
 
