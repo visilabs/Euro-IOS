@@ -22,9 +22,25 @@
     EMMessage *pushDetail = [[EMMessage alloc] initWithDictionary:bestAttemptContent.userInfo error:&error];
     UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
     
-    if(pushDetail != nil && pushDetail.pushType == @"Image" || pushDetail.pushType == @"Video")
+    if(pushDetail != nil && pushDetail.mediaURL != nil && ([pushDetail.pushType  isEqual: @"Image"] || [pushDetail.pushType  isEqual: @"Video"]))
     {
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:pushDetail.mediaURL]];
         
+        NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            
+            /*
+            if(error) {
+                self->failCallback([NSError errorWithDomain:@"Failed to create connection" code:0 userInfo:nil]);
+            }
+            UIImage *image = [UIImage imageWithData:data];
+            self->successCallback(image);
+            NSLog(@"In completionHandler");
+             */
+            
+            
+            
+        } ];
+        [task resume];
     }
     
 }
