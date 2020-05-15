@@ -15,12 +15,6 @@
 
 #define SDK_VERSION @"2.0.1"
 
-//TODO: UNUserNotificationCenterDelegate kaldırdım, bir soruna sebep olur mu kontrol et.
-/*
-@interface EuroManager : NSObject <UNUserNotificationCenterDelegate> {
-
-}
- */
 
 @interface EuroManager : NSObject  <UNUserNotificationCenterDelegate>
 
