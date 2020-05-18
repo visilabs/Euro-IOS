@@ -21,18 +21,24 @@
     NSError *error;
     EMMessage *pushDetail = [[EMMessage alloc] initWithDictionary:bestAttemptContent.userInfo error:&error];
     
-    
+    if(pushDetail == nil)
+    {
+        return;
+    }
 
     //TODO: burada reportRetention received gönderilecek
     
-    if(pushDetail.category == "carousel")
+    if(pushDetail.category == @"carousel")
     {
         addCarouselActionButtons();
     }
     
     UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
     
-    
+    if(modifiedBestAttemptContent != nil)
+    {
+        
+    }
     
     
     if(pushDetail != nil && pushDetail.mediaURL != nil && ([pushDetail.pushType  isEqual: @"Image"] || [pushDetail.pushType  isEqual: @"Video"]))
