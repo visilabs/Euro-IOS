@@ -20,6 +20,8 @@
     
     NSError *error;
     EMMessage *pushDetail = [[EMMessage alloc] initWithDictionary:bestAttemptContent.userInfo error:&error];
+
+    
     UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
     
     
@@ -56,7 +58,12 @@
 
 + (void) addCarouselActionButtons API_AVAILABLE(ios(10.0))
 {
-    
+    NSString *categoryIdentifier = @"carousel";
+    UNNotificationAction *carouselNext = [UNNotificationAction actionWithIdentifier:@"carousel.next" title:@"▶" options:UNNotificationActionOptionNone];
+    UNNotificationAction *carouselPrevious = [UNNotificationAction actionWithIdentifier:@"carousel.previous" title:@"◀" options:UNNotificationActionOptionNone];
+    UNNotificationCategory *carouselCategory = [UNNotificationCategory categoryWithIdentifier:categoryIdentifier actions:@[carouselNext,carouselPrevious] intentIdentifiers:@[] options:UNNotificationCategoryOptionNone];
+    NSSet *categories = [NSSet setWithObject:carouselCategory];
+    [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:categories];
 }
 
 + (void) loadAttachments:(NSURL*) mediaUrl withModifiedBestAttemptContent:(UNMutableNotificationContent*)modifiedBestAttemptContent withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler API_AVAILABLE(ios(10.0))
