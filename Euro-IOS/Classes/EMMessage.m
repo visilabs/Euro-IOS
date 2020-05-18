@@ -25,6 +25,7 @@
 @synthesize body;
 @synthesize subtitle;
 @synthesize title;
+@synthesize deeplink;
 
 +(EMJSONKeyMapper*)keyMapper
 {
@@ -42,7 +43,8 @@
                                                          @"altUrl" : @"altUrl",
                                                          @"cid" : @"cId",
                                                          @"pushId" : @"pushId",
-                                                         @"settings": @"settings"
+                                                         @"settings": @"settings",
+                                                         @"deeplink": @"deeplink"
                                                          }];
 }
 
