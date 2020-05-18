@@ -10,6 +10,17 @@
 
 #import "EMJSONModel.h"
 
+
+@interface EMElement : EMJSONModel
+
+@property (nonatomic, strong) NSString<Optional> *title;
+@property (nonatomic, strong) NSString<Optional> *content;
+@property (nonatomic, strong) NSString<Optional> *url;
+@property (nonatomic, strong) NSString<Optional> *picture;
+
+@end
+
+
 @interface EMMessage : EMJSONModel
 
 @property (nonatomic, strong) NSString<Optional> *pushId;
