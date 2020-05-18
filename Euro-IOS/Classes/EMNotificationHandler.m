@@ -28,46 +28,21 @@
 
     //TODO: burada reportRetention received gönderilecek
     
-    if(pushDetail.category == @"carousel")
+    if([pushDetail.category  isEqual: @"carousel"])
     {
-        addCarouselActionButtons();
+        [self addCarouselActionButtons];
     }
     
     UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
     
-    if(modifiedBestAttemptContent != nil)
+    if(modifiedBestAttemptContent != nil  && pushDetail.mediaURL != nil && ([pushDetail.pushType  isEqual: @"Image"] || [pushDetail.pushType  isEqual: @"Video"]))
     {
-        
-    }
-    
-    
-    if(pushDetail != nil && pushDetail.mediaURL != nil && ([pushDetail.pushType  isEqual: @"Image"] || [pushDetail.pushType  isEqual: @"Video"]))
-    {
-        
         NSURL *mUrl = [NSURL URLWithString:pushDetail.mediaURL];
-        
-        
-        
-        
-        NSURLRequest *request = [NSURLRequest requestWithURL: mUrl];
-        
-        NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            
-            /*
-            if(error) {
-                self->failCallback([NSError errorWithDomain:@"Failed to create connection" code:0 userInfo:nil]);
-            }
-            UIImage *image = [UIImage imageWithData:data];
-            self->successCallback(image);
-            NSLog(@"In completionHandler");
-             */
-            
-            
-            
-        } ];
-        [task resume];
+        if(mUrl != nil)
+        {
+            [self loadAttachments:mUrl withModifiedBestAttemptContent:modifiedBestAttemptContent withContentHandler:contentHandler];
+        }
     }
-    
 }
 
 + (void) addCarouselActionButtons API_AVAILABLE(ios(10.0))
