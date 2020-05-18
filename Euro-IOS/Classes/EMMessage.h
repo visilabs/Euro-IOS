@@ -40,6 +40,7 @@
 
 //TODO: bu sonradan eklendi
 @property (nonatomic, strong) NSString<Optional> *deeplink;
+@property (nonatomic, strong) NSArray<Optional> *elements;
 
 - (NSDictionary *) getInteractiveSettings;
 - (BOOL) hasUrl;
