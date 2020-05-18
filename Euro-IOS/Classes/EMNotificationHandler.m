@@ -22,9 +22,18 @@
     EMMessage *pushDetail = [[EMMessage alloc] initWithDictionary:bestAttemptContent.userInfo error:&error];
     UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
     
+    
+    
+    
     if(pushDetail != nil && pushDetail.mediaURL != nil && ([pushDetail.pushType  isEqual: @"Image"] || [pushDetail.pushType  isEqual: @"Video"]))
     {
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:pushDetail.mediaURL]];
+        
+        NSURL *mUrl = [NSURL URLWithString:pushDetail.mediaURL];
+        
+        
+        
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL: mUrl];
         
         NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             
@@ -43,6 +52,19 @@
         [task resume];
     }
     
+}
+
++ (NSString *) determineType:(NSString *)fileType {
+    if([fileType isEqualToString:@"video/mp4"])
+        return @".mp4";
+    else if([fileType isEqualToString:@"image/jpeg"])
+        return @".jpg";
+    else if([fileType isEqualToString:@"image/gif"])
+        return @".gif";
+    else if([fileType isEqualToString:@"image/png"])
+        return @".png";
+    else
+        return @".tmp";
 }
 
 @end
