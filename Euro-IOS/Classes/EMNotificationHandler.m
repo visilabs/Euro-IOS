@@ -20,10 +20,15 @@
     
     NSError *error;
     EMMessage *pushDetail = [[EMMessage alloc] initWithDictionary:bestAttemptContent.userInfo error:&error];
+    
+    
 
     //TODO: burada reportRetention received gönderilecek
     
-    
+    if(pushDetail.category == "carousel")
+    {
+        addCarouselActionButtons();
+    }
     
     UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
     
