@@ -26,6 +26,7 @@
 @synthesize subtitle;
 @synthesize title;
 @synthesize deeplink;
+@synthesize elements;
 
 +(EMJSONKeyMapper*)keyMapper
 {
@@ -44,7 +45,8 @@
                                                          @"cid" : @"cId",
                                                          @"pushId" : @"pushId",
                                                          @"settings": @"settings",
-                                                         @"deeplink": @"deeplink"
+                                                         @"deeplink": @"deeplink",
+                                                         @"elements": @"elements"
                                                          }];
 }
 
