@@ -21,6 +21,9 @@
     NSError *error;
     EMMessage *pushDetail = [[EMMessage alloc] initWithDictionary:bestAttemptContent.userInfo error:&error];
 
+    //TODO: burada reportRetention received gönderilecek
+    
+    
     
     UNMutableNotificationContent *modifiedBestAttemptContent = bestAttemptContent;
     
