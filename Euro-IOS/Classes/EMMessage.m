@@ -10,6 +10,29 @@
 
 #import "EMMessage.h"
 
+
+
+@implementation EMElement
+
+@synthesize title;
+@synthesize content;
+@synthesize url;
+@synthesize picture;
+
++(EMJSONKeyMapper*)keyMapper
+{
+    return [[EMJSONKeyMapper alloc] initWithDictionary:@{
+                                                         @"title" : @"title",
+                                                         @"content": @"content",
+                                                         @"url": @"url",
+                                                         @"picture": @"picture"
+                                                         }];
+}
+
+@end
+
+
+
 @implementation EMMessage
 
 @synthesize pushId;
