@@ -54,6 +54,16 @@
     
 }
 
++ (void) addCarouselActionButtons API_AVAILABLE(ios(10.0))
+{
+    
+}
+
++ (void) loadAttachments:(NSURL*) mediaUrl withModifiedBestAttemptContent:(UNMutableNotificationContent*)modifiedBestAttemptContent withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler API_AVAILABLE(ios(10.0))
+{
+    
+}
+
 + (NSString *) determineType:(NSString *)fileType {
     if([fileType isEqualToString:@"video/mp4"])
         return @".mp4";
