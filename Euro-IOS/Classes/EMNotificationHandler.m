@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "EMNotificationHandler.h"
 #import "EMMessage.h"
+#import "EMLogging.h"
 
 @implementation EMNotificationHandler
 
@@ -57,7 +58,45 @@
 
 + (void) loadAttachments:(NSURL*) mediaUrl withModifiedBestAttemptContent:(UNMutableNotificationContent*)modifiedBestAttemptContent withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler API_AVAILABLE(ios(10.0))
 {
-    
+    NSURLSession * session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
+    NSURLSessionDownloadTask * task = [session downloadTaskWithURL:mediaUrl completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(error)
+        {
+            LogDebug(@"loadAttachments : %@", error.localizedDescription);
+            contentHandler(modifiedBestAttemptContent);
+            return;
+        }
+        if(response && response.MIMEType)
+        {
+            NSString *fileType = [self determineType:response.MIMEType];
+            if(location != nil && location.lastPathComponent != nil)
+            {
+                @try {
+                    NSString *fileName = [location.lastPathComponent stringByAppendingFormat:@"%@", fileType];
+                    NSURL *temporaryFile = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:fileName];
+                    NSError *error1;
+                    NSError *error2;
+                    NSError *error3;
+                    [[NSFileManager defaultManager] moveItemAtURL:location toURL:temporaryFile error:&error1];
+                    UNNotificationAttachment *attachment = [UNNotificationAttachment attachmentWithIdentifier:@"" URL:temporaryFile options:nil error:&error2];
+                    NSMutableArray *attachmentsArray = [[NSMutableArray alloc] init];
+                    [attachmentsArray addObject:attachment];
+                    modifiedBestAttemptContent.attachments = attachmentsArray;
+                    contentHandler(modifiedBestAttemptContent);
+                    if([[NSFileManager defaultManager] fileExistsAtPath:temporaryFile.path])
+                    {
+                        [[NSFileManager defaultManager] removeItemAtURL:temporaryFile error:&error3];
+                    }
+                }
+                @catch (NSException *exception) {
+                    LogDebug(@"loadAttachments : %@", error.localizedDescription);
+                    contentHandler(modifiedBestAttemptContent);
+                }
+            }
+        }
+        
+    }];
+    [task resume];
 }
 
 + (NSString *) determineType:(NSString *)fileType {
