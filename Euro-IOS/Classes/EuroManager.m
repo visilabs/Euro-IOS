@@ -549,7 +549,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     return [hexString copy];
 }
 
-+ (void) didReceive:(UNMutableNotificationContent*) bestAttemptContent withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler API_AVAILABLE(ios(10.0))
++ (void) didReceive:(UNMutableNotificationContent*) bestAttemptContent withContentHandler:(void (^_Nullable)(UNNotificationContent* _Nonnull contentToDeliver))contentHandler API_AVAILABLE(ios(10.0))
 {
     [EMNotificationHandler didReceive:bestAttemptContent withContentHandler:contentHandler];
 }
