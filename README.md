@@ -80,6 +80,14 @@ If you have already added the Euromessage library to your project, simply add th
 
 ![Images for Podfil](https://img.visilabs.net/banner/uploaded_images/163_1100_20200522202124881.png)
 
+Add this code under didFinishLaunchingWithOptions.
+
+```swift
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    EuroManager.sharedManager("EuromsgTest")?.registerForPush()
+   }
+```
+
 User has to accept to receive push messages. If the user accepts and the device is successfully registered to the APNS, the following method is called in AppDelegate
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
