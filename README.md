@@ -17,7 +17,7 @@ Euro-IOS is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Euro-IOS'
+pod 'Euro-IOS', '>= 1.9.6'
 ```
 
 ## Add a Notification Service Extension
@@ -111,7 +111,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 ## Author
 
-egemen@visilabs.com, egemen.gulkilik@relateddigital.com
+egemen@visilabs.com, egemen.gulkilik@relateddigital.com, umutcan.alparslan@euromsg.com
 
 ## License
 
