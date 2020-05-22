@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Euro-IOS'
-  s.version          = '1.9.6'
+  s.version          = '1.9.7'
   s.summary          = 'Euro IOS Framework'
 
 # This description is used to generate tags and improve search results.
@@ -31,11 +31,4 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'Euro-IOS/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'Euro-IOS' => ['Euro-IOS/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
