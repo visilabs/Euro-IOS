@@ -13,12 +13,15 @@
 #import "AsyncImageDownloader.h"
 #import "BaseObject.h"
 #import "EMBaseRequest.h"
+#import "EMDefines.h"
 #import "EMInteractiveAction.h"
 #import "EMLocation.h"
 #import "EMLogging.h"
 #import "EMMessage.h"
+#import "EMNotificationHandler.h"
 #import "EMRegisterRequest.h"
 #import "EMRetentionRequest.h"
+#import "EMSelectorHelpers.h"
 #import "EMSettingsModel.h"
 #import "EMSettingsRequest.h"
 #import "EMTools.h"
@@ -33,6 +36,8 @@
 #import "NSArray+EMJSONModel.h"
 #import "EMJSONKeyMapper.h"
 #import "EMJSONValueTransformer.h"
+#import "UIApplicationDelegate+EM.h"
+#import "UNUserNotificationCenter+EM.h"
 
 FOUNDATION_EXPORT double Euro_IOSVersionNumber;
 FOUNDATION_EXPORT const unsigned char Euro_IOSVersionString[];
