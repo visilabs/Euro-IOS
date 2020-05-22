@@ -554,16 +554,6 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     [EMNotificationHandler didReceive:bestAttemptContent withContentHandler:contentHandler];
 }
 
-/*
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
-    NSLog(@"userNotificationCenter:willPresentNotification");
-}
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
-    NSLog(@"userNotificationCenter:didReceiveNotificationResponse");
-}
-*/
-
 @end
 
 
@@ -582,21 +572,15 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     if ([EMTools isIOSVersionLessThan:@"8.0"])
         return;
 
-    // Double loading of class detection.
     BOOL existing = injectSelector([EMAppDelegate class], @selector(emLoadedTagSelector:), self, @selector(emLoadedTagSelector:));
     
     if (existing) {
-        //TODO: bak
-        //[OneSignal onesignal_Log:ONE_S_LL_WARN message:@"Already swizzled UIApplication.setDelegate. Make sure the OneSignal library wasn't loaded into the runtime twice!"];
         return;
     }
 
-    // Swizzle - UIApplication delegate
     injectToProperClass(@selector(setEMDelegate:), @selector(setDelegate:), @[], [EMAppDelegate class], [UIApplication class]);
     
-    //TODO: buna gerek var mı kaldırılmalı mı?
-    //injectToProperClass(@selector(emSetApplicationIconBadgeNumber:), @selector(setApplicationIconBadgeNumber:), @[], [EMAppDelegate class], [UIApplication class]);
-    
+
     [self setupUNUserNotificationCenterDelegate];
 
     sessionLaunchTime = [NSDate date];
@@ -606,13 +590,11 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
 +(void)setupUNUserNotificationCenterDelegate {
     //TODO:
     
-    // Swizzle - UNUserNotificationCenter delegate - iOS 10+
     if (!NSClassFromString(@"UNUserNotificationCenter"))
         return;
 
     [EMUNUserNotificationCenter swizzleSelectors];
 
-    // Set our own delegate if one hasn't been set already from something else.
     [EMTools registerAsUNNotificationCenterDelegate];
      
 }
