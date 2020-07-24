@@ -14,7 +14,7 @@
 #import "EMMessage.h"
 #import "EMTools.h"
 
-#define SDK_VERSION @"1.9.7"
+#define SDK_VERSION @"1.9.8"
 
 
 @interface EuroManager : NSObject  <UNUserNotificationCenterDelegate>
