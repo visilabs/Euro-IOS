@@ -46,6 +46,9 @@ static NSString * const EURO_FACEBOOK_KEY = @"facebook";
 static NSString * const EURO_TWITTER_KEY = @"twitter";
 static NSString * const EURO_LAST_MESSAGE_KEY = @"em.lastMessage";
 
+
+static NSString * const EURO_LAST_RETENTION_PUSHID_KEY = @"em.lastRetentionPushId";
+
 static NSString * const EURO_RECEIVED_STATUS = @"D";
 static NSString * const EURO_READ_STATUS = @"O";
 
@@ -104,9 +107,23 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     rRequest.pushId = message.pushId;
     rRequest.choiceId = @"";
     
+    NSString *lastRetentionPushId = [EMTools retrieveUserDefaults:EURO_LAST_RETENTION_PUSHID_KEY];
+    LogInfo(@"reportRetention: %@ : %@", lastRetentionPushId ,rRequest.pushId);
+    
+    
+    if (lastRetentionPushId != nil && [lastRetentionPushId isEqualToString:message.pushId])
+    {
+        return;
+    }
+    
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self request:rRequest success:^(id response) {
             // retention report success
+            
+            LogInfo(@"rRequest: %@",rRequest.pushId);
+            
+            [EMTools saveUserDefaults:EURO_LAST_RETENTION_PUSHID_KEY andValue:rRequest.pushId];
             [EMTools removeUserDefaults:EURO_LAST_MESSAGE_KEY];
             
         } failure:^(NSError *error) {

@@ -13,7 +13,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[EuroManager sharedManager:@"VisilabsIOSDemo"] setUserKey: @"egemen@visilabs.com"];
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserKey: @"egemen@visilabs.com"];
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] registerForPush];
     return YES;
 }
 
