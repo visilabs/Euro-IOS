@@ -16,6 +16,28 @@
     [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserKey: @"egemen@visilabs.com"];
     [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
     [[EuroManager sharedManager:@"EuromsgIOSTest"] registerForPush];
+    
+    
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
+       completionHandler:^(BOOL granted, NSError * _Nullable error) {
+          if (granted)
+          {
+              [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
+              [[EuroManager sharedManager:@"EuromsgIOSTest"] addParams:@"pushPermit" value:@"Y"];
+              [[EuroManager sharedManager:@"EuromsgIOSTest"] synchronize];
+          }
+          else
+          {
+              [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
+              [[EuroManager sharedManager:@"EuromsgIOSTest"] addParams:@"pushPermit" value:@"N"];
+              [[EuroManager sharedManager:@"EuromsgIOSTest"] synchronize];
+          }
+    }];
+    
+    
+    
+    
     return YES;
 }
 
