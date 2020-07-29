@@ -116,6 +116,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
         return;
     }
     
+    [EMTools saveUserDefaults:EURO_LAST_RETENTION_PUSHID_KEY andValue:rRequest.pushId];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self request:rRequest success:^(id response) {
@@ -123,7 +124,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
             
             LogInfo(@"rRequest: %@",rRequest.pushId);
             
-            [EMTools saveUserDefaults:EURO_LAST_RETENTION_PUSHID_KEY andValue:rRequest.pushId];
+            
             [EMTools removeUserDefaults:EURO_LAST_MESSAGE_KEY];
             
         } failure:^(NSError *error) {
@@ -165,6 +166,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
         sharedMyManager.registerRequest.token = [EMTools retrieveUserDefaults:TOKEN_KEY];
+        sharedMyManager.lastRetentionPushId = [EMTools retrieveUserDefaults:EURO_LAST_RETENTION_PUSHID_KEY];
     });
     
     if(applicationKey){
@@ -376,11 +378,6 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
         return;
     }
     
-    /*NSString *tokenString = [[[tokenData description] stringByTrimmingCharactersInSet:
-                              [NSCharacterSet characterSetWithCharactersInString:@"<>"]]
-                             stringByReplacingOccurrencesOfString:@" " withString:@""];
-    */
-    
     NSString *tokenString = [self stringFromDeviceToken:tokenData];
     
     if(self.debugMode) {
@@ -489,8 +486,6 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     if([requestModel.getMethod isEqualToString:@"POST"] || [requestModel.getMethod isEqualToString:@"PUT"]) {
         // pass parameters from request object
         [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:requestModel.toDictionary options:NSJSONWritingPrettyPrinted error:nil]];
-    } else if([requestModel.getMethod isEqualToString:@"GET"]) {
-        
     }
     
     if (request.HTTPBody) {
