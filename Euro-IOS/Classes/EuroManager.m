@@ -166,7 +166,6 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
         sharedMyManager.registerRequest.token = [EMTools retrieveUserDefaults:TOKEN_KEY];
-        sharedMyManager.lastRetentionPushId = [EMTools retrieveUserDefaults:EURO_LAST_RETENTION_PUSHID_KEY];
     });
     
     if(applicationKey){
