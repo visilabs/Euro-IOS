@@ -49,6 +49,10 @@ static NSString * const EURO_LAST_MESSAGE_KEY = @"em.lastMessage";
 
 static NSString * const EURO_LAST_RETENTION_PUSHID_KEY = @"em.lastRetentionPushId";
 
+static NSString * const EURO_ALREADY_SENT_SUBSCRIPTION_JSON = @"sent_subscription";
+static NSString * const EURO_LAST_SUBSCRIPTION_TIME = @"last_subscription_time";
+
+
 static NSString * const EURO_RECEIVED_STATUS = @"D";
 static NSString * const EURO_READ_STATUS = @"O";
 
@@ -278,11 +282,11 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     [EMTools saveUserDefaults:TOKEN_KEY andValue:self.registerRequest.token]; // save the token just in case
     
     NSDate *now = [NSDate date];
-    NSDate *fiveMinsLater = [NSDate dateWithTimeInterval:15 * 60 sinceDate:now]; // check every 15 minutes
+    //NSDate *fiveMinsLater = [NSDate dateWithTimeInterval:20 * 60 sinceDate:now]; // check every 15 minutes
     
     if(![[EMTools getInfoString:@"CFBundleIdentifier"] isEqualToString:@"com.euromsg.EuroFramework"]) {
         
-        NSComparisonResult result = [now compare:[EMTools retrieveUserDefaults:LAST_REQUEST_DATE_KEY]];
+        NSComparisonResult result = [ [NSDate dateWithTimeInterval:20 * 60 sinceDate:now]  compare:[EMTools retrieveUserDefaults:LAST_REQUEST_DATE_KEY]]; //TODO:bu zamanı config'e al
         if ((result == NSOrderedAscending && [lastRegister isEqualToString:currentRegister]) || self.registerRequest.token == nil) {
             if (self.debugMode) {
                 LogInfo(@"Register request not ready : %@",self.registerRequest.toDictionary);
@@ -296,7 +300,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     __weak __typeof__(self) weakSelf = self;
     [self request:self.registerRequest success:^(id response) {
         
-        [EMTools saveUserDefaults:LAST_REQUEST_DATE_KEY andValue:fiveMinsLater]; // save request date
+        [EMTools saveUserDefaults:LAST_REQUEST_DATE_KEY andValue:now]; // save request date
         
         [EMTools saveUserDefaults:REGISTER_KEY andValue:currentRegister];
         

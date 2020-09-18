@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Euro-IOS'
-  s.version          = '1.9.10'
+  s.version          = '1.9.11'
   s.summary          = 'Euro IOS Framework'
 
 # This description is used to generate tags and improve search results.
@@ -30,5 +30,6 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '7.0'
 
   s.source_files = 'Euro-IOS/Classes/**/*'
+  s.pod_target_xcconfig = { 'PRODUCT_BUNDLE_IDENTIFIER': 'com.euromsg.EuroFramework' }
   
 end
