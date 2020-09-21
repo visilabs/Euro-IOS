@@ -284,7 +284,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     NSDate *now = [NSDate date];
     //NSDate *fiveMinsLater = [NSDate dateWithTimeInterval:20 * 60 sinceDate:now]; // check every 15 minutes
     
-    if(![[EMTools getInfoString:@"CFBundleIdentifier"] isEqualToString:@"com.euromsg.EuroFramework"]) {
+    //if(![[EMTools getInfoString:@"CFBundleIdentifier"] isEqualToString:@"com.euromsg.EuroFramework"]) {
         
         NSComparisonResult result = [ [NSDate dateWithTimeInterval:20 * 60 sinceDate:now]  compare:[EMTools retrieveUserDefaults:LAST_REQUEST_DATE_KEY]]; //TODO:bu zamanı config'e al
         if ((result == NSOrderedAscending && [lastRegister isEqualToString:currentRegister]) || self.registerRequest.token == nil) {
@@ -293,7 +293,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
             }
             return;
         }
-    }
+    //}
     
     if(self.registerRequest.appKey == nil || [@"" isEqual:self.registerRequest.appKey]) { return; } // appkey should not be empty
     
