@@ -13,6 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] setDebug:YES];
     [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserKey: @"egemen@visilabs.com"];
     [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
     [[EuroManager sharedManager:@"EuromsgIOSTest"] registerForPush];

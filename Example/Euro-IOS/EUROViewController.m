@@ -7,6 +7,7 @@
 //
 
 #import "EUROViewController.h"
+#import "EuroManager.h"
 
 @interface EUROViewController ()
 
@@ -24,6 +25,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)sync:(id)sender {
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] synchronize];
 }
 
 @end

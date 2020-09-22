@@ -271,7 +271,9 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     __block NSString *currentRegister = self.registerRequest.toJSONString;
     NSString *lastRegister = [NSString stringWithFormat:@"%@",[EMTools retrieveUserDefaults:REGISTER_KEY]];
     
-    if ([EMTools retrieveUserDefaults:TOKEN_KEY]) { // set whether it is the first request or not
+    id token = [EMTools retrieveUserDefaults:TOKEN_KEY];
+    
+    if (token) { // set whether it is the first request or not
         self.registerRequest.firstTime = [NSNumber numberWithInt:0];
     }
     
@@ -282,18 +284,17 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     [EMTools saveUserDefaults:TOKEN_KEY andValue:self.registerRequest.token]; // save the token just in case
     
     NSDate *now = [NSDate date];
-    //NSDate *fiveMinsLater = [NSDate dateWithTimeInterval:20 * 60 sinceDate:now]; // check every 15 minutes
+    NSDate *lastRequestDate = (NSDate*) [EMTools retrieveUserDefaults:LAST_REQUEST_DATE_KEY];
+    NSComparisonResult result = [now compare:[NSDate dateWithTimeInterval:20 * 60 sinceDate:lastRequestDate]];
+    bool arePayloadsEqual = [lastRegister isEqualToString:currentRegister];
     
-    //if(![[EMTools getInfoString:@"CFBundleIdentifier"] isEqualToString:@"com.euromsg.EuroFramework"]) {
-        
-        NSComparisonResult result = [ [NSDate dateWithTimeInterval:20 * 60 sinceDate:now]  compare:[EMTools retrieveUserDefaults:LAST_REQUEST_DATE_KEY]]; //TODO:bu zamanı config'e al
-        if ((result == NSOrderedAscending && [lastRegister isEqualToString:currentRegister]) || self.registerRequest.token == nil) {
-            if (self.debugMode) {
-                LogInfo(@"Register request not ready : %@",self.registerRequest.toDictionary);
-            }
-            return;
+    if ((result == NSOrderedAscending && arePayloadsEqual) || self.registerRequest.token == nil) {
+        if (self.debugMode) {
+            LogInfo(@"Register request not ready : %@",self.registerRequest.toDictionary);
         }
-    //}
+        return;
+    }
+    
     
     if(self.registerRequest.appKey == nil || [@"" isEqual:self.registerRequest.appKey]) { return; } // appkey should not be empty
     
