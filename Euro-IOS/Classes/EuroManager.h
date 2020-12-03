@@ -47,4 +47,6 @@
 
 + (void) didReceive:(UNMutableNotificationContent*) bestAttemptContent withContentHandler:(void (^_Nullable)(UNNotificationContent* _Nonnull contentToDeliver))contentHandler API_AVAILABLE(ios(10.0));
 
+- (void) registerEmail:(NSString *) email emailPermit:(BOOL) emailPermit isCommercial:(BOOL) isCommercial success:(void (^_Nullable)(void)) success failure:(void (^_Nullable)(NSString *errorMessage)) failure;
+
 @end

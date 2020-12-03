@@ -56,6 +56,13 @@ static NSString * const EURO_LAST_SUBSCRIPTION_TIME = @"last_subscription_time";
 static NSString * const EURO_RECEIVED_STATUS = @"D";
 static NSString * const EURO_READ_STATUS = @"O";
 
+static NSString * const EURO_CONSENT_TIME_KEY = @"ConsentTime";
+static NSString * const EURO_CONSENT_SOURCE_KEY = @"ConsentSource";
+static NSString * const EURO_CONSENT_SOURCE_VALUE = @"HS_MOBIL";
+static NSString * const EURO_RECIPIENT_TYPE_KEY = @"RecipientType";
+static NSString * const EURO_RECIPIENT_TYPE_BIREYSEL = @"BIREYSEL";
+static NSString * const EURO_RECIPIENT_TYPE_TACIR = @"TACIR";
+
 @interface EuroManager()
 
 @property (nonatomic, assign) BOOL debugMode;
@@ -447,6 +454,63 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
     else {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
         LogInfo(@"Register for iOS older");
+    }
+}
+
+- (void) registerEmail:(NSString *) email emailPermit:(BOOL) emailPermit isCommercial:(BOOL) isCommercial success:(void (^_Nullable)(void)) success failure:(void (^_Nullable)(NSString *errorMessage)) failure {
+    if([EMTools validateEmail:email]) {
+        [self.registerRequest.extra setObject:email forKey:EURO_EMAIL_KEY];
+        [self.registerRequest.extra setObject: (emailPermit ? @"Y" : @"N") forKey:@"emailPermit"];
+        NSString *isCommercialText = EURO_RECIPIENT_TYPE_BIREYSEL;
+        if(!isCommercial) {
+            isCommercialText = EURO_RECIPIENT_TYPE_TACIR;
+        }
+        [self.registerRequest.extra setObject:isCommercialText forKey:EURO_RECIPIENT_TYPE_KEY];
+        [self.registerRequest.extra setObject:EURO_CONSENT_SOURCE_VALUE forKey:EURO_CONSENT_SOURCE_KEY];
+        
+        
+        __weak __typeof__(self) weakSelf = self;
+        [self request:self.registerRequest success:^(id response) {
+            
+            [self.registerRequest.extra removeObjectForKey:EURO_RECIPIENT_TYPE_KEY];
+            [self.registerRequest.extra removeObjectForKey:EURO_CONSENT_SOURCE_KEY];
+            [self.registerRequest.extra removeObjectForKey:EURO_CONSENT_TIME_KEY];
+            
+            //[EMTools saveUserDefaults:LAST_REQUEST_DATE_KEY andValue:now]; // save request date
+            
+            //[EMTools saveUserDefaults:REGISTER_KEY andValue:currentRegister];
+            
+            if(success){
+                success();
+            }
+            
+            
+            if (weakSelf.debugMode) {
+                LogInfo(@"Token registered to EuroMsg : %@",self.registerRequest.token);
+            }
+            
+            
+        } failure:^(NSError *error) {
+            
+            [self.registerRequest.extra removeObjectForKey:EURO_RECIPIENT_TYPE_KEY];
+            [self.registerRequest.extra removeObjectForKey:EURO_CONSENT_SOURCE_KEY];
+            [self.registerRequest.extra removeObjectForKey:EURO_CONSENT_TIME_KEY];
+            
+            if(failure){
+                failure(@"zzzzzzzzzzzzzzzzzz");
+            }
+            if (weakSelf.debugMode) {
+                LogInfo(@"Request failed : %@",error);
+            }
+        }];
+        
+        
+        
+    } else {
+        if(failure){
+            failure(@"Invalid email address");
+        }
+        return;
     }
 }
 
