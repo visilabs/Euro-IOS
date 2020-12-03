@@ -30,4 +30,18 @@
     [[EuroManager sharedManager:@"EuromsgIOSTest"] synchronize];
 }
 
+- (IBAction)registerEmail:(id)sender {
+    
+    void (^success)(void) = ^void(void) {
+        NSLog(@"registerEmail sucess");
+    };
+    
+    void (^failure)(NSString*) = ^void(NSString* message) {
+        NSLog(@"registerEmail failure");
+        NSLog(@"%@", message);
+    };
+    
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] registerEmail:@"ege@v.com" emailPermit:YES isCommercial:YES success:success failure:failure];
+}
+
 @end

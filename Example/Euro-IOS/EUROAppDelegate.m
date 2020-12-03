@@ -14,8 +14,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[EuroManager sharedManager:@"EuromsgIOSTest"] setDebug:YES];
-    [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserKey: @"egemen@visilabs.com"];
-    [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserKey: @"12345"];
+    //[[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
     [[EuroManager sharedManager:@"EuromsgIOSTest"] registerForPush];
     
     
@@ -24,13 +24,13 @@
        completionHandler:^(BOOL granted, NSError * _Nullable error) {
           if (granted)
           {
-              [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
+              //[[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
               [[EuroManager sharedManager:@"EuromsgIOSTest"] addParams:@"pushPermit" value:@"Y"];
               [[EuroManager sharedManager:@"EuromsgIOSTest"] synchronize];
           }
           else
           {
-              [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
+              //[[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: @"egemen@visilabs.com"];
               [[EuroManager sharedManager:@"EuromsgIOSTest"] addParams:@"pushPermit" value:@"N"];
               [[EuroManager sharedManager:@"EuromsgIOSTest"] synchronize];
           }
