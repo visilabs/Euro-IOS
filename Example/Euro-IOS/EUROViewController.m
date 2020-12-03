@@ -10,6 +10,8 @@
 #import "EuroManager.h"
 
 @interface EUROViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *permissionSwitch;
 
 @end
 
@@ -18,7 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    _emailTextField.delegate = self;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,10 +33,17 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)sync:(id)sender {
+    NSString* emailPermitValue = _permissionSwitch.on ? @"Y" : @"X";
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] addParams:@"emailPermit" value:emailPermitValue];
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] setUserEmail: _emailTextField.text];
     [[EuroManager sharedManager:@"EuromsgIOSTest"] synchronize];
 }
 
 - (IBAction)registerEmail:(id)sender {
+    
+    NSString* email = _emailTextField.text;
+    BOOL emailPermit = _permissionSwitch.on;
+    
     
     void (^success)(void) = ^void(void) {
         NSLog(@"registerEmail sucess");
@@ -41,7 +54,18 @@
         NSLog(@"%@", message);
     };
     
-    [[EuroManager sharedManager:@"EuromsgIOSTest"] registerEmail:@"ege@v.com" emailPermit:YES isCommercial:YES success:success failure:failure];
+    [[EuroManager sharedManager:@"EuromsgIOSTest"] registerEmail:email emailPermit:emailPermit isCommercial:NO success:success failure:failure];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)dismissKeyboard
+{
+    [_emailTextField resignFirstResponder];
 }
 
 @end

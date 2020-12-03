@@ -462,12 +462,18 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
         [self.registerRequest.extra setObject:email forKey:EURO_EMAIL_KEY];
         [self.registerRequest.extra setObject: (emailPermit ? @"Y" : @"N") forKey:@"emailPermit"];
         NSString *isCommercialText = EURO_RECIPIENT_TYPE_BIREYSEL;
-        if(!isCommercial) {
+        if(isCommercial) {
             isCommercialText = EURO_RECIPIENT_TYPE_TACIR;
         }
+        
+        NSDateFormatter* dateFormatter;
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:60 * 60 * 3]];
+        NSString *turkeyDateString = [dateFormatter stringFromDate:[NSDate date]];
         [self.registerRequest.extra setObject:isCommercialText forKey:EURO_RECIPIENT_TYPE_KEY];
         [self.registerRequest.extra setObject:EURO_CONSENT_SOURCE_VALUE forKey:EURO_CONSENT_SOURCE_KEY];
-        
+        [self.registerRequest.extra setObject:turkeyDateString forKey:EURO_CONSENT_TIME_KEY];
         
         __weak __typeof__(self) weakSelf = self;
         [self request:self.registerRequest success:^(id response) {
@@ -475,10 +481,9 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
             [self.registerRequest.extra removeObjectForKey:EURO_RECIPIENT_TYPE_KEY];
             [self.registerRequest.extra removeObjectForKey:EURO_CONSENT_SOURCE_KEY];
             [self.registerRequest.extra removeObjectForKey:EURO_CONSENT_TIME_KEY];
-            
-            //[EMTools saveUserDefaults:LAST_REQUEST_DATE_KEY andValue:now]; // save request date
-            
-            //[EMTools saveUserDefaults:REGISTER_KEY andValue:currentRegister];
+                        
+            __block NSString *currentRegister = self.registerRequest.toJSONString;
+            [EMTools saveUserDefaults:REGISTER_KEY andValue:currentRegister];
             
             if(success){
                 success();
@@ -486,7 +491,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
             
             
             if (weakSelf.debugMode) {
-                LogInfo(@"Token registered to EuroMsg : %@",self.registerRequest.token);
+                LogInfo(@"Email registered to EuroMsg");
             }
             
             
@@ -500,12 +505,9 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
                 failure(@"zzzzzzzzzzzzzzzzzz");
             }
             if (weakSelf.debugMode) {
-                LogInfo(@"Request failed : %@",error);
+                LogInfo(@"Register request failed : %@",error);
             }
         }];
-        
-        
-        
     } else {
         if(failure){
             failure(@"Invalid email address");
