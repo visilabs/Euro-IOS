@@ -460,7 +460,7 @@ static NSDate *sessionLaunchTime;static NSDate *sessionLaunchTime;
 - (void) registerEmail:(NSString *) email emailPermit:(BOOL) emailPermit isCommercial:(BOOL) isCommercial success:(void (^_Nullable)(void)) success failure:(void (^_Nullable)(NSString *errorMessage)) failure {
     if([EMTools validateEmail:email]) {
         [self.registerRequest.extra setObject:email forKey:EURO_EMAIL_KEY];
-        [self.registerRequest.extra setObject: (emailPermit ? @"Y" : @"N") forKey:@"emailPermit"];
+        [self.registerRequest.extra setObject: (emailPermit ? @"Y" : @"X") forKey:@"emailPermit"];
         NSString *isCommercialText = EURO_RECIPIENT_TYPE_BIREYSEL;
         if(isCommercial) {
             isCommercialText = EURO_RECIPIENT_TYPE_TACIR;
