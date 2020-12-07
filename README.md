@@ -117,6 +117,25 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     }
 ```
 
+## IYS Email Register
+
+To register email IYS:
+
+```swift
+
+let success: (() -> Void)? = {
+    print("registerEmail sucess")
+}
+
+let failure: ((String?) -> Void)? = { message in
+    print("registerEmail failure")
+    print("\(message ?? "")")
+}
+
+EuroManager.sharedManager("EuromsgTest")?.registerEmail("test@euromsg.com", emailPermit: trur, isCommercial: false, success: success, failure: failure)
+
+```
+
 ## Author
 
 egemen@visilabs.com, egemen.gulkilik@relateddigital.com, umutcan.alparslan@euromsg.com
